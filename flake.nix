@@ -1,5 +1,5 @@
 {
-  description = "Abhishek's Nix Config";
+  description = "Abhishek Rana's Nix Config";
 
   inputs =  {
     nixpkgs.url = "github:nixos/nixpkgs/release-24.11"; 
