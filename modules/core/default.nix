@@ -9,6 +9,7 @@
     ./services.nix
     ./networking.nix
     ./hardware.nix
+    ./fonts.nix
     ./programs
   ];
 }
