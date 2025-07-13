@@ -8,6 +8,10 @@
     ./services.nix
     ./networking.nix
     ./hardware.nix
+    ./nixpkgs.nix
+    ./packages.nix
+    ./auto-update.nix
+    ./greetd.nix
     ./programs
   ];
 }

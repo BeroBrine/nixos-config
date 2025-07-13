@@ -4,6 +4,8 @@
     ./packages.nix
     ./init.nix
     ./user.nix
-    ./fonts.nix
+    ./stylix.nix
+    ./symlinks
+    # ./fonts.nix
   ];
 }

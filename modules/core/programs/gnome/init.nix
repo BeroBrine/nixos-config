@@ -1,6 +1,6 @@
 {
   services.xserver = {
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+    displayManager.gdm.enable = false;
+    desktopManager.gnome.enable = false;
   };
 }
