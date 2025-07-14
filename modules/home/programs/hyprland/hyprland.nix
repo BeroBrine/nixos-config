@@ -79,7 +79,6 @@ in {
         vrr = 2; #Variable Refresh Rate  Might need to set to 0 for NVIDIA/AQ_DRM_DEVICES
         # Screen flashing to black momentarily or going black when app is fullscreen
         # Try setting vrr to 0
-
       };
       
       decoration = {
@@ -97,7 +96,6 @@ in {
           render_power = 3;
         };
       };
-
     };
 
     extraConfig = "

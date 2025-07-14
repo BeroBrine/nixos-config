@@ -21,6 +21,7 @@ in {
       "$modifier,B,exec,uwsm app -- ${browser}"
       "$modifier,Y,exec,uwsm app -- kitty -e yazi"
       "$modifier,E,exec,uwsm app -- ${fileManager}"
+      "SUPER ,L,exec,uwsm app -- hyprlock"
       "$modifier,S,exec,screenshootin"
       "$modifier,D,exec,uwsm app -- discord"
       "$modifier,O,exec,uwsm app -- obs"

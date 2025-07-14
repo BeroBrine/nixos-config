@@ -28,10 +28,23 @@
           valign = "center";
         }
       ];
+     label = [
+        {
+          text = "$USER";
+          text_align = "center";
+          color = "rgba(200, 200, 200, 1.0)";
+          font_size = 25;
+          font_family = "Noto Sans";
+          rotate = 0;
+          position = "0, -30";
+          halign = "center";
+          valign = "center";
+        }
+      ];
       input-field = [
         {
           size = "200, 50";
-          position = "0, -80";
+          position = "0, -120";
           monitor = "";
           dots_center = true;
           fade_on_empty = false;
