@@ -1,10 +1,12 @@
 {
   imports = [
     ./zoxide.nix
-    ./shell/default.nix
-    ./hyprland/default.nix
+    ./shell
+    ./hyprland
     ./waybar
     ./kitty
+    ./obsidian
+    ./lazygit
     ./wlogout
     ./rofi
     ./git.nix

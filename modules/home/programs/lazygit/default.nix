@@ -1,5 +1,5 @@
 {
   imports = [
-    # ./wallpapers.nix
+    ./lazygit.nix
   ];
 }
