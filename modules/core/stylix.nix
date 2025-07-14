@@ -9,15 +9,8 @@ in {
   stylix = {
     enable = true;
     image = stylixImage;
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-    targets = {
-      hyprland.enable = true;
-      kitty.enable = true;
-      rofi.enable = false;
-      gtk.enable = true;
-      hyprlock.enable = false;
-    };
 
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
 
     polarity = "dark";
     opacity.terminal = 1.0;

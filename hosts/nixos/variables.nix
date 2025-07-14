@@ -5,5 +5,6 @@
   browser = "firefox";
   mainMod = "Alt";
   clock24h = true;
-  stylixImage = ../../wallpapers/AnimeGirlNightSky.jpg; 
+  fileManager = "thunar";
+  stylixImage = ../../wallpapers/wp14742048-berserk-aesthetic-wallpapers.jpg;
 }

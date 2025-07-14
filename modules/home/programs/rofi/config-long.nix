@@ -1,4 +1,6 @@
-{...}: {
+{hostname , ...}:let inherit
+  (import ../../../../hosts/${hostname}/variables.nix) stylixImage
+; in {
   home.file.".config/rofi/config-long.rasi".text = ''
     @import "~/.config/rofi/config.rasi"
     window {
@@ -12,7 +14,7 @@
     inputbar {
       padding: 75px 40px;
       background-color: transparent;
-      background-image: url("~/Pictures/Wallpapers/Rainnight.jpg", width);
+      background-image: url("${stylixImage}", width);
       text-color: @foreground;
       children: [ "textbox-prompt-colon", "entry" ];
     }
@@ -28,6 +30,13 @@
       border-radius: 100%;
       background-color: @bg-alt;
       text-color: @foreground;
+    }
+    listview {
+      columns: 2;
+      lines: 8;
+      cycle: true;
+      dynamic: true;
+      scrollbar: false;
     }
     button {
       padding: 12px;

@@ -4,6 +4,7 @@
     ./binds.nix
     ./packages.nix
     ./hyprpaper.nix
+    ./hyprlock.nix
     ./windowrules.nix
     # ----animations---- 
     ./animation-dynamic.nix

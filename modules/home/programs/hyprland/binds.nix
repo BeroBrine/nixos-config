@@ -3,6 +3,7 @@
     (import ../../../../hosts/${hostname}/variables.nix)
     browser
     terminal
+    fileManager
     mainMod 
     ;
 in {
@@ -13,12 +14,13 @@ in {
       "$modifier,Return,exec,uwsm app -- ${terminal}"
       "$modifier,K,exec,list-keybinds"
       "$modifier SHIFT,Return,exec,rofi-launcher"
+      "$modifier,SPACE,exec,rofi -show drun"
       "$modifier SHIFT,W,exec,web-search"
       "$modifier ALT,W,exec,wallsetter"
       "$modifier SHIFT,N,exec,swaync-client -rs"
       "$modifier,B,exec,uwsm app -- ${browser}"
       "$modifier,Y,exec,uwsm app -- kitty -e yazi"
-      "$modifier,E,exec,emopicker9000"
+      "$modifier,E,exec,uwsm app -- ${fileManager}"
       "$modifier,S,exec,screenshootin"
       "$modifier,D,exec,uwsm app -- discord"
       "$modifier,O,exec,uwsm app -- obs"
@@ -69,7 +71,7 @@ in {
       "$modifier,9,workspace,9"
       "$modifier,0,workspace,10"
       "$modifier SHIFT,SPACE,movetoworkspace,special"
-      "$modifier,SPACE,togglespecialworkspace"
+      # "$modifier,SPACE,togglespecialworkspace"
       "$modifier SHIFT,1,movetoworkspace,1"
       "$modifier SHIFT,2,movetoworkspace,2"
       "$modifier SHIFT,3,movetoworkspace,3"

@@ -3,8 +3,9 @@
     ./zoxide.nix
     ./shell/default.nix
     ./hyprland/default.nix
-    ./kitty
     ./waybar
+    ./kitty
+    ./wlogout
     ./rofi
     ./git.nix
   ];
