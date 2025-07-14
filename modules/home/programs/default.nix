@@ -7,6 +7,7 @@
     ./kitty
     ./obsidian
     ./lazygit
+    ./gtk
     ./wlogout
     ./rofi
     ./git.nix

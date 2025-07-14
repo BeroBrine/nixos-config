@@ -6,5 +6,5 @@
   mainMod = "Alt";
   clock24h = true;
   fileManager = "thunar";
-  stylixImage = ../../wallpapers/wp14742048-berserk-aesthetic-wallpapers.jpg;
+  stylixImage = ../../wallpapers/pxfuel.jpg;
 }
