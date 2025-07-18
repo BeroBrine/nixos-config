@@ -10,10 +10,16 @@
     stylix = {
       url = "github:danth/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
+
+    };
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = {nixpkgs , home-manager , stylix, ...}: let 
+
+  outputs = {nixpkgs , home-manager , stylix, nvf ,...}: let 
     system = "x86_64-linux";
     hostname = "nixos";
     username = "abhishek";
@@ -41,8 +47,10 @@
 			};
 			modules = [
         stylix.homeModules.stylix
+        nvf.homeManagerModules.default
 			  ./modules/home
 			];
+
 		};	
 
   };

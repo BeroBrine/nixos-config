@@ -5,6 +5,8 @@
     ./waybar
     ./kitty
     ./obsidian
+    #./nixvim
+    ./nvf
     ./zoxide
     ./git
     ./lazygit

@@ -31,7 +31,7 @@
     usbutils # Good Tools For USB Devices
     v4l-utils # Used For Things Like OBS Virtual Camera
     wget # Tool For Fetching Files With Links
-    neovim
+    vim
   ];
 
 }

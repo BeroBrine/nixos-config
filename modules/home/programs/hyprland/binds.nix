@@ -100,6 +100,10 @@ in {
       ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
     ];
 
+    bindl = [
+      ",switch:on:Lid Switch, exec, hyprlock --immediate"
+    ];
+
     bindm = [
       "$modifier, mouse:272, movewindow"
       "$modifier, mouse:273, resizewindow"

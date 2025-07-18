@@ -16,6 +16,8 @@ in {
       rofi.enable = false;
       gtk.enable = true;
       hyprlock.enable = false;
+      neovim.enable = false;
+      nvf.enable = false;
     };
 
 

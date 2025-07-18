@@ -6,5 +6,8 @@
     fastfetch
     firefox
     ripgrep
+    neovim
+    typescript
+    fzf
   ];
 }
