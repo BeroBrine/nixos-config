@@ -1,0 +1,107 @@
+;; KMonad configuration for MacBook Air M2
+;; This configuration maps the physical keys of a MacBook Air M2 keyboard
+
+(defcfg
+  ;; For macOS, use the iokit-name
+  input  (iokit-name "Apple Internal Keyboard / Trackpad")
+  output (kext)
+  fallthrough true
+  allow-cmd true
+)
+
+(defsrc
+  ;; Top row (Function keys)
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del
+  
+  ;; Number row
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  
+  ;; Top letter row
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  
+  ;; Home row
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  
+  ;; Bottom row
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  
+  ;; Bottom modifier row
+  fn   lctl lalt lmet           spc           rmet ralt
+)
+
+(deflayer default
+  ;; Function row - default to media keys (standard Mac behavior)
+  esc  @brd @bru @mc  @lp  @bld @blu @prv @pp  @nxt @mut @vld @vlu del
+  
+  ;; Number row
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  
+  ;; Top letter row  
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  
+  ;; Home row - caps lock becomes control when held, escape when tapped
+  @cap a    s    d    f    g    h    j    k    l    ;    '    ret
+  
+  ;; Bottom row
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  
+  ;; Bottom modifier row - fn key for function layer
+  @fnl lctl lalt lmet           spc           rmet ralt
+)
+
+
+(deflayer nav
+  ;; Top row (Function keys)
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del
+  
+  ;; Number row
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  
+  ;; Top letter row
+  tab  C-q    C-w   C-e    C-r   @ctrl_t    C-y    C-u    C-i    C-o    C-p    [    ]    \
+  
+  ;; Home row
+  lctl @ctrl_a    C-s    bspc    @del_all    C-g    left    down    up    rght    ;    '    ret
+  
+  ;; Bottom row
+  lsft C-z    C-x    C-c    C-v    C-b    S--    C-m    ,    .    /    rsft
+  
+  ;; Bottom modifier row
+  fn   lctl lalt lmet           spc           rmet ralt
+)
+
+;; Function layer accessed by holding fn key - now gives you F1-F12
+(deflayer function
+  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    left down up   rght _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _              _              _    _
+)
+
+;; Aliases for complex behaviors
+(defalias
+  ;; Caps lock: Control when held, Escape when tapped
+  cap (tap-hold 100 esc (layer-toggle nav))
+  fnl (layer-toggle function)
+  symbol (layer-switch symbols)
+  del_all (around lalt bspc)
+  ctrl_a (around lmet a)
+  ctrl_t (around lmet t)
+  ctrl_w (around lmet w)
+  
+  ;; Mac media keys - using proper KMonad syntax
+  brd brightnessdown
+  bru brightnessup
+  mc  f3             ;; Mission Control (just F3)
+  lp  f4             ;; Launchpad (just F4)
+  bld f5             ;; Keyboard backlight down (F5)
+  blu f6             ;; Keyboard backlight up (F6)
+  prv previoussong
+  pp  playpause
+  nxt nextsong
+  mut mute
+  vld voldwn
+  vlu volu
+)

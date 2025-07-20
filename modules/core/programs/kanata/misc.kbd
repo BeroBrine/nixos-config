@@ -1,0 +1,45 @@
+
+(defalias
+  ;; tap: escape, hold: toggle layer-switching layer while held
+  ;; tap for capslk, hold for layer toggle to nav
+  cap (tap-hold 100 esc (layer-toggle nav))
+  fnl (layer-toggle function)
+  symbol (layer-switch symbols)
+  del_all (around lalt bspc)
+  ctrl_a (around lmet a)
+  ctrl_t (around lmet t)
+  ctrl_w (around lmet w)
+  brd brightnessdown
+  bru brightnessup
+  mc  (around met f3)        ;; Mission Control
+  lp  (around met f4)        ;; Launchpad  
+  bld (around met f5)        ;; Keyboard backlight down
+  blu (around met f6)        ;; Keyboard backlight up
+  prv previoussong
+  pp  playpause
+  nxt nextsong
+  mut mute
+  vld voldwn
+  vlu volu
+)
+
+
+(deflayer nav
+
+  ;; Top row (Function keys)
+  
+  ;; Number row
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  
+  ;; Top letter row
+  tab  C-q    C-w    C-e    C-r   @ctrl_t    C-y    C-u    C-i    C-o    C-p    [    ]    \
+  
+  ;; Home row
+  lctl @ctrl_a    C-s    bspc    @del_all    C-g    left    down    up    rght    ;    '    ret
+  
+  ;; Bottom row
+  lsft C-z    C-x    C-c    C-v    C-b    S--    C-m    ,    .    /    rsft
+  
+  ;; Bottom modifier row
+  fn   lctl lalt lmet           spc           rmet ralt
+)
