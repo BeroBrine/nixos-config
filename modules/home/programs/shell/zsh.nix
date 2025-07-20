@@ -33,7 +33,8 @@
       '';
 
       shellAliases = {
-        hms = "cd ~/.nix && home-manager switch --flake .";
+        hms = "cd ~/.nix && git add * && home-manager switch --flake .";
+        leet = "nvim leetcode.nvim";
       };
     };
 

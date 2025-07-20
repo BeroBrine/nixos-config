@@ -4,7 +4,7 @@
             syntaxHighlighting = true;
             lineNumberMode = "relNumber";
             viAlias = true;
-            vimAlias = true;
+            vimAlias = false;
             preventJunkFiles = true;
 
             undoFile.enable = true;

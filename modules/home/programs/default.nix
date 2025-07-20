@@ -2,10 +2,11 @@
   imports = [
     ./shell
     ./aerospace
+    ./tmux
 #    ./hyprland
 #    ./waybar
     ./kitty
-    ./obsidian
+    #./obsidian
     #./nixvim
     ./nvf
     ./zoxide

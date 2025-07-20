@@ -61,7 +61,7 @@
   tab  C-q    C-w   C-e    C-r   @ctrl_t    C-y    C-u    C-i    C-o    C-p    [    ]    \
   
   ;; Home row
-  lctl @ctrl_a    C-s    bspc    @del_all    C-g    left    down    up    rght    ;    '    ret
+  lctl @ctrl_a    C-s    bspc    @del_all    C-g    left    down    up    rght    C-;    C-'    ret
   
   ;; Bottom row
   lsft C-z    C-x    C-c    C-v    C-b    S--    C-m    ,    .    /    rsft

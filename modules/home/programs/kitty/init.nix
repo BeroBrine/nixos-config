@@ -11,6 +11,10 @@
       # background_opacity = "0.5";
       # background_blur = 15;
     };
+    # extraConfig = "
+    #   # Map Cmd+B to F13 function key for tmux prefix
+    #   map cmd+b send_key f13
+    # ";
     # font = {
     #   name = "JetBrainsMono Nerd Font Mono";
     #   size = 16;
