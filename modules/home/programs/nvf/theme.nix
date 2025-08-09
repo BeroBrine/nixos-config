@@ -1,8 +1,8 @@
 {
-  # programs.nvf.settings.vim.theme = {
-  #   enable = false;
-  #   name = "gruvbox";
-  #   style = "dark";
-  #   transparent = true;
-  # };
-}
+  programs.nvf.settings.vim.theme = {
+    enable = true;
+    name = "catppuccin";
+    style = "macchiato";
+    transparent = true;
+  };
+ }

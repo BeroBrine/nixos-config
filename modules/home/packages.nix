@@ -8,6 +8,7 @@
     ncdu
     arc-browser
     ripgrep
+    neovim
     typescript
     fzf
   ];

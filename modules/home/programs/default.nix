@@ -6,6 +6,7 @@
 #    ./hyprland
 #    ./waybar
     ./kitty
+    ./nodejs
     #./obsidian
     #./nixvim
     ./nvf

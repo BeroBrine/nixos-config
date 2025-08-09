@@ -6,5 +6,5 @@
     mainMod = "Alt";
     clock24h = true;
     fileManager = "thunar";
-    stylixImage = ../../wallpapers/a_colorful_buildings_with_power_lines.jpg;
+    stylixImage = ../../wallpapers/a_lighthouse_with_a_large_cloud_of_pink_clouds.jpg;
 }

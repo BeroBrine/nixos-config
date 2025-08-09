@@ -35,6 +35,7 @@
       shellAliases = {
         hms = "cd ~/.nix && git add * && home-manager switch --flake .";
         leet = "nvim leetcode.nvim";
+        tat = "tmux attach";
       };
     };
 

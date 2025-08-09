@@ -6,5 +6,6 @@
     ./user.nix
     ./stylix.nix
     ./fonts.nix
+    ./catppuccin.nix
   ];
 }

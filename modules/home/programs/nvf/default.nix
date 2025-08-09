@@ -9,6 +9,7 @@
     ./leetcode.nix
     ./languages.nix
     ./ui.nix
+    ./luasnip.nix
     ./binds.nix
     ./treesitter.nix
     ./utility.nix
