@@ -1,4 +1,4 @@
-{pkgs , ...}:{
+{pkgs ,lib  ,...}:{
   programs = {
     zsh = {
       enable = true;
@@ -26,11 +26,12 @@
         ];
       };
 
-
-      initContent = ''
+      initContent = lib.mkBefore ''
+        [[ ! $(command -v nix) && -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]] && source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
         export PATH="$PATH:~/.local/bin"
         eval "$(ssh-agent -s)"
-      '';
+      ''; 
+
 
       shellAliases = {
         hms = "cd ~/.nix && git add * && home-manager switch --flake .";

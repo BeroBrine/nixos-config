@@ -6,8 +6,14 @@
     fastfetch
     htop
     ncdu
-    arc-browser
     ripgrep
+    rustc
+    cargo
+    android-tools
+    rustfmt
+    jdk17
+    brave
+    scrcpy
     neovim
     typescript
     fzf

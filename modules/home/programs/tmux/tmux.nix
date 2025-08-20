@@ -42,11 +42,11 @@
       set -g prefix C-b
       bind C-b send-prefix
       
-      # Alt+n to go to previous window
-      bind-key -n M-n previous-window
+      # Option+h to go to the previous window
+      bind-key -n M-h previous-window
       
-      # Alt+m to go to next window  
-      bind-key -n M-m next-window
+      # Option+l to go to the next window
+      bind-key -n M-l next-window
       
       # Key bindings for session management
       
