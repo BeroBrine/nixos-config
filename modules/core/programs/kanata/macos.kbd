@@ -31,7 +31,10 @@
 
 (deflayer default
   ;; Function row - default to media keys (standard Mac behavior)
+
   esc  @brd @bru @mc  @lp  @bld @blu @prv @pp  @nxt @mut @vld @vlu del
+
+  ;;esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del
   
   ;; Number row
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
@@ -90,18 +93,18 @@
   ctrl_a (around lmet a)
   ctrl_t (around lmet t)
   ctrl_w (around lmet w)
-  
+
   ;; Mac media keys - using proper KMonad syntax
-  brd brightnessdown
-  bru brightnessup
-  mc  f3             ;; Mission Control (just F3)
-  lp  f4             ;; Launchpad (just F4)
-  bld f5             ;; Keyboard backlight down (F5)
-  blu f6             ;; Keyboard backlight up (F6)
-  prv previoussong
-  pp  playpause
-  nxt nextsong
-  mut mute
-  vld voldwn
-  vlu volu
+  brd  f1              ;; CHANGED: Was brightnessdown
+  bru  f2              ;; CHANGED: Was brightnessup
+  mc   f3              ;; Mission Control (just F3)
+  lp   f4              ;; Launchpad (just F4)
+  bld  f5              ;; Keyboard backlight down (F5)
+  blu  f6              ;; Keyboard backlight up (F6)
+  prv  previoussong
+  pp   playpause
+  nxt  nextsong
+  mut  mute
+  vld  voldwn
+  vlu  volu
 )
