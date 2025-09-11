@@ -38,6 +38,11 @@
         leet = "nvim leetcode.nvim";
         tat = "tmux attach";
       };
+
+      sessionVariables = {
+        RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
+      };
+
     };
 
   };

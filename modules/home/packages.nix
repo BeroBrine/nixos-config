@@ -17,5 +17,7 @@
     typescript
     autoraise
     fzf
+    rustc
+    rustfmt
   ];
 }

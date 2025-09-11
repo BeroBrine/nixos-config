@@ -7,7 +7,6 @@
 #    ./waybar
     ./kitty
     ./nodejs
-    ./rust
     #./obsidian
     #./nixvim
     ./nvf
