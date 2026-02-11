@@ -2,6 +2,6 @@
 
   home = {
     username = username;
-    homeDirectory = "/Users/${username}";
+    homeDirectory = "/home/${username}";
   };
 }

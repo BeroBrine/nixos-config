@@ -10,8 +10,8 @@
     duf # Utility For Viewing Disk Usage In Terminal
     eza # Beautiful ls Replacement
     networkmanagerapplet
-    glxinfo # Needed for inxi -G GPU info
     greetd.tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
+    mesa-demos
     htop # Simple Terminal Based System Monitor
     hyprpicker # Color Picker
     eog # For Image Viewing
@@ -32,6 +32,12 @@
     v4l-utils # Used For Things Like OBS Virtual Camera
     wget # Tool For Fetching Files With Links
     vim
+    neovim
+    git
+    tmux
+    fastfetch
+    ripgrep
+    fzf
   ];
 
 }

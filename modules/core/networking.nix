@@ -6,7 +6,10 @@
 }: {
   networking = {
     hostName = "${hostname}";
-    networkmanager.enable = true;
+    networkmanager = {
+	enable = true;
+	wifi.backend = "iwd";
+    };
     timeServers = options.networking.timeServers.default ++ ["pool.ntp.org"];
     firewall = {
       enable = true;

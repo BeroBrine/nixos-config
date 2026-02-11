@@ -2,14 +2,19 @@
   description = "Abhishek's Nix Config";
 
   inputs =  {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05"; 
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11"; 
     catppuccin.url = "github:catppuccin/nix";
+    nixos-apple-silicon = {
+      url = "github:nix-community/nixos-apple-silicon";
+      inputs.nixpkgs.follows = "nixpkgs";
+
+    };
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05"; 
+      url = "github:nix-community/home-manager/release-25.11"; 
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
-      url = "github:danth/stylix/release-25.05";
+      url = "github:danth/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
 
     };
@@ -20,10 +25,10 @@
   };
 
 
-  outputs = {nixpkgs , home-manager , stylix, nvf , catppuccin , ...}: let 
-    system = "aarch64-darwin";
-    hostname = "MacAir";
-    username = "abhishekrana";
+  outputs = {nixpkgs , home-manager , stylix, nvf , catppuccin ,nixos-apple-silicon ,...}: let 
+    system = "aarch64-linux";
+    hostname = "nixos";
+    username = "abhishek";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations = {
@@ -35,6 +40,7 @@
         };
         modules = [
           stylix.nixosModules.stylix
+          nixos-apple-silicon.nixosModules.default
           ./hosts/${hostname}
         ];
       };

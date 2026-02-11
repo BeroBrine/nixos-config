@@ -7,14 +7,15 @@
 in {
   # Styling Options
   stylix = {
-    enable = true;
+    enable = false;
     # image = stylixImage;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     targets = {
       # hyprland.enable = true;
       kitty.enable = true;
-      # rofi.enable = false;
+      rofi.enable = false;
       gtk.enable = true;
+      hyprlock.enable = false;
       # hyprlock.enable = false;
       neovim.enable = false;
       nvf = {

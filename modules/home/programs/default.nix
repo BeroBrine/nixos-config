@@ -3,8 +3,8 @@
     ./shell
     ./aerospace
     ./tmux
-#    ./hyprland
-#    ./waybar
+    ./hyprland
+    ./waybar
     ./kitty
     ./nodejs
     #./obsidian
@@ -13,8 +13,8 @@
     ./zoxide
     ./git
     ./lazygit
-#    ./gtk
-#    ./wlogout
-#    ./rofi
+    ./gtk
+    ./wlogout
+    ./rofi
   ];
 }

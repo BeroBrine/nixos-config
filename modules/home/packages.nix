@@ -7,17 +7,15 @@
     htop
     ncdu
     ripgrep
-    cargo
-    android-tools
+    # cargo
     jdk17
     brave
     scrcpy
+    firefox
     neovim
-    rar
     typescript
-    autoraise
     fzf
-    rustc
-    rustfmt
+    # rustc
+    # rustfmt
   ];
 }
