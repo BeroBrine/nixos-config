@@ -15,6 +15,8 @@
     ./greetd.nix
     ./stylix.nix
     ./nh.nix
+
     ./programs
+    ./fairydust
   ];
 }

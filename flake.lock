@@ -86,6 +86,23 @@
         "type": "github"
       }
     },
+    "fairydust": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1769452792,
+        "narHash": "sha256-CWKAyyGuu9jjcwN3Gz98ZjcTLRPQwnpKd32IyD4zsBw=",
+        "owner": "AsahiLinux",
+        "repo": "linux",
+        "rev": "b0b5bbf9f67e9063af591e7a1187d37d0f2b8e29",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AsahiLinux",
+        "ref": "fairydust",
+        "repo": "linux",
+        "type": "github"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -374,6 +391,7 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
+        "fairydust": "fairydust",
         "home-manager": "home-manager",
         "nixos-apple-silicon": "nixos-apple-silicon",
         "nixpkgs": "nixpkgs_2",

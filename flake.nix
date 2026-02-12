@@ -22,10 +22,15 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    fairydust = {
+      url = "github:AsahiLinux/linux/fairydust";
+      flake = false;
+    };
   };
 
 
-  outputs = {nixpkgs , home-manager , stylix, nvf , catppuccin ,nixos-apple-silicon ,...}: let 
+  outputs = {nixpkgs , home-manager , stylix, nvf , catppuccin ,nixos-apple-silicon ,...}@inputs: let 
     system = "aarch64-linux";
     hostname = "nixos";
     username = "abhishek";
@@ -37,6 +42,7 @@
         specialArgs = {
           inherit username;
           inherit hostname;
+          inherit inputs;
         };
         modules = [
           stylix.nixosModules.stylix

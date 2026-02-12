@@ -12,6 +12,9 @@
     brave
     scrcpy
     firefox
+    gnumake
+    cmake
+    tree
     neovim
     typescript
     fzf

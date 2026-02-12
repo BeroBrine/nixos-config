@@ -33,10 +33,12 @@
     wget # Tool For Fetching Files With Links
     vim
     neovim
+    ncurses
     git
     tmux
     fastfetch
-    ripgrep
+    gcc
+    clang
     fzf
   ];
 
