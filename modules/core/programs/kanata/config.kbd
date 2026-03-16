@@ -1,0 +1,45 @@
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lalt lmet           spc            ralt rmet rctl
+)
+
+
+(deflayer base
+  grv 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  @cap a   s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lalt lmet            spc            ralt rmet rctl
+)
+
+(defalias
+  ;; tap: backtick (grave), hold: toggle layer-switching layer while held
+
+  ;; layer-switch changes the base layer.
+
+  ;; tap for capslk, hold for layer toggle to nav
+  cap (tap-hold 80 100 esc (layer-toggle nav))
+  symbol (layer-switch symbols)
+)
+
+
+(deflayer nav
+  grv 1 2 3 4 5 6 7 8 9 0 - = bspc
+  tab C-q C-w C-e C-r C-t C-y C-u C-i C-o C-p [ ] \
+  lctl C-a C-s bspc C-bspc C-g left down up right ; ' ret
+  lsft C-z C-x C-c C-v C-b S-- S-9 , . / rsft
+  caps lmet (layer-toggle symbols) spc ralt rmet rctl
+)
+
+
+(deflayer symbols
+  grv 1 2 3 4 5 6 7 8 9 0 - = bspc
+  tab C-q C-w C-e C-r C-t C-y C-u C-i C-o C-p [ ] \
+  _ C-a C-s bspc C-bspc C-g S-- S-9 S-[ . ; ' ret
+  lsft C-z C-x C-c C-v C-b C-n C-m , . / rsft
+  lctl _ C-lalt spc ralt rmet rctl
+)
+

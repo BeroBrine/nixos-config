@@ -1,0 +1,23 @@
+{
+  imports = [
+    ./nvf.nix
+    ./vim.nix
+    ./filetree.nix
+    ./autocomplete.nix
+    ./filetypes.nix
+    ./telescope.nix
+    ./leetcode.nix
+    ./languages.nix
+    ./ui.nix
+    ./luasnip.nix
+    ./binds.nix
+    ./treesitter.nix
+    ./utility.nix
+    ./git.nix
+    ./visual.nix
+    ./conform
+    ./theme.nix
+    ./lsp
+    ./lazygit.nix
+  ];
+}
