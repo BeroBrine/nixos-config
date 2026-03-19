@@ -1,8 +1,13 @@
-{pkgs , username , config , hostname ,...}:
-let 
-  inherit 
-     (import ../../../../hosts/${hostname}/variables.nix) stylixImage ;
-in {
+{ pkgs
+, hostname
+, ...
+}:
+let
+  inherit (import ../../../../hosts/${hostname}/variables.nix)
+    stylixImage
+    ;
+in
+{
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -12,18 +17,17 @@ in {
     systemd = {
       enable = true;
       enableXdgAutostart = true;
-      variables = ["--all"];
+      variables = [ "--all" ];
     };
 
     xwayland = {
       enable = true;
     };
 
-
     settings = {
 
       exec-once = [
-        "caelestia shell -d"
+        # "caelestia shell -d"
         "hyprctl setcursor Bibata-Modern-Ice 24"
         "wl-paste --type text --watch cliphist store # Stores only text data"
         "export HYPRLAND_CONFIG=~/.config/hypr/dynamic.conf"
@@ -39,10 +43,15 @@ in {
       ];
 
       monitor = [
-        "eDP-1, 2560x1664, 1920x0, 1.4"
         "DP-1, 1920x1080@100, 0x0, 1"
+        # "eDP-1, 2560x1600@60, 0x1080, 1.3333334"
+        "eDP-1, 2560x1600@60, 0x1080, 1.25"
       ];
 
+      workspace = [
+        "1, monitor:DP-1"
+        "2, monitor:eDP-1"
+      ];
 
       input = {
         repeat_delay = 180;
@@ -69,13 +78,13 @@ in {
         new_on_top = 1;
         mfact = 0.5;
       };
-  
+
       cursor = {
         sync_gsettings_theme = true;
         no_hardware_cursors = 2; # change to 1 if want to disable
         enable_hyprcursor = false;
-        warp_on_change_workspace = 2;
-        no_warps = true;
+        warp_on_change_workspace = 1;
+        no_warps = false;
       };
 
       misc = {
@@ -87,11 +96,11 @@ in {
         disable_splash_rendering = true;
         enable_swallow = false;
         vfr = true; # Variable Frame Rate
-        vrr = 2; #Variable Refresh Rate  Might need to set to 0 for NVIDIA/AQ_DRM_DEVICES
+        vrr = 2; # Variable Refresh Rate  Might need to set to 0 for NVIDIA/AQ_DRM_DEVICES
         # Screen flashing to black momentarily or going black when app is fullscreen
         # Try setting vrr to 0
       };
-      
+
       decoration = {
         rounding = 10;
         blur = {
@@ -108,19 +117,7 @@ in {
         };
       };
     };
-     
-    # extraConfig = ''
-    #       # Source a user-editable file for dynamic stuff (monitors, profiles, etc.)
-    #       # source = ~/.config/hypr/dynamic.conf
-    #
-    #       # Your fixed monitor as fallback (if dynamic.conf doesn't exist yet)
-    #       monitor = eDP-1, 2560x1664, 1920x0, 1.40000
-    #       monitor = DP-1, 1920x1080@100, 0x0, 1
-    #     '';
-
 
   };
-
-
 
 }

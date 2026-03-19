@@ -1,34 +1,37 @@
-{hostname, ...}: let
-  inherit
-    (import ../../../../hosts/${hostname}/variables.nix)
+{ hostname, pkgs, ... }:
+let
+  inherit (import ../../../../hosts/${hostname}/variables.nix)
     browser
     terminal
     fileManager
-    mainMod 
+    mainMod
     ;
-in {
+in
+{
   wayland.windowManager.hyprland.settings = {
     "$modifier" = mainMod;
 
+    # -----------------------------------------------------
+    # Standard Keybindings
+    # -----------------------------------------------------
     bind = [
+      # Caelestia specific
+      "$modifier,SPACE,global,caelestia:launcher"
+      "$modifier SHIFT,L,global,caelestia:lock"
+      "$modifier SHIFT,V,exec,caelestia clipboard"
+
+      # Apps
       "$modifier,Return,exec,uwsm app -- ${terminal}"
-      "$modifier,K,exec,list-keybinds"
-      "$modifier SHIFT,Return,exec,rofi-launcher"
-      "$modifier,SPACE,exec,rofi -show drun"
-      "$modifier SHIFT,W,exec,web-search"
-      "$modifier ALT,W,exec,wallsetter"
-      "$modifier SHIFT,N,exec,swaync-client -rs"
       "$modifier,B,exec,uwsm app -- ${browser}"
-      "$modifier,Y,exec,uwsm app -- kitty -e yazi"
       "$modifier,E,exec,uwsm app -- ${fileManager}"
-      "$modifier SHIFT,L,exec,uwsm app -- hyprlock"
-      "$modifier,S,exec,screenshootin"
       "$modifier,D,exec,uwsm app -- discord"
       "$modifier,O,exec,uwsm app -- obs"
       "$modifier,C,exec,hyprpicker -a"
       "$modifier,G,exec,uwsm app -- gimp"
       "$modifier,T,exec,pypr toggle term"
       "$modifier,M,exec,pavucontrol"
+
+      # Window Management
       "$modifier,Q,killactive,"
       "$modifier,P,pseudo,"
       "$modifier,V,exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
@@ -37,22 +40,8 @@ in {
       "$modifier SHIFT,F,togglefloating,"
       "$modifier ALT,F,workspaceopt, allfloat"
       "$modifier SHIFT,C,exit,"
-      "$modifier SHIFT,left,movewindow,l"
-      "$modifier SHIFT,right,movewindow,r"
-      "$modifier SHIFT,up,movewindow,u"
-      "$modifier SHIFT,down,movewindow,d"
-      # "$modifier SHIFT,h,movewindow,l"
-      # "$modifier SHIFT,l,movewindow,r"
-      # "$modifier SHIFT,k,movewindow,u"
-      # "$modifier SHIFT,j,movewindow,d"
-      "$modifier ALT, left, swapwindow,l"
-      "$modifier ALT, right, swapwindow,r"
-      "$modifier ALT, up, swapwindow,u"
-      "$modifier ALT, down, swapwindow,d"
-      "$modifier ALT, 43, swapwindow,l"
-      "$modifier ALT, 46, swapwindow,r"
-      "$modifier ALT, 45, swapwindow,u"
-      "$modifier ALT, 44, swapwindow,d"
+
+      # Focus and Movement (HJKL + Arrows)
       "$modifier,h,movefocus,l"
       "$modifier,l,movefocus,r"
       "$modifier,k,movefocus,u"
@@ -61,6 +50,18 @@ in {
       "$modifier SHIFT,l,swapwindow,r"
       "$modifier SHIFT,k,swapwindow,u"
       "$modifier SHIFT,j,swapwindow,d"
+
+      "$modifier SHIFT,left,movewindow,l"
+      "$modifier SHIFT,right,movewindow,r"
+      "$modifier SHIFT,up,movewindow,u"
+      "$modifier SHIFT,down,movewindow,d"
+
+      "$modifier ALT, left, swapwindow,l"
+      "$modifier ALT, right, swapwindow,r"
+      "$modifier ALT, up, swapwindow,u"
+      "$modifier ALT, down, swapwindow,d"
+
+      # Workspaces
       "$modifier,1,workspace,1"
       "$modifier,2,workspace,2"
       "$modifier,3,workspace,3"
@@ -72,7 +73,6 @@ in {
       "$modifier,9,workspace,9"
       "$modifier,0,workspace,10"
       "$modifier SHIFT,SPACE,movetoworkspace,special"
-      # "$modifier,SPACE,togglespecialworkspace"
       "$modifier SHIFT,1,movetoworkspace,1"
       "$modifier SHIFT,2,movetoworkspace,2"
       "$modifier SHIFT,3,movetoworkspace,3"
@@ -83,27 +83,50 @@ in {
       "$modifier SHIFT,8,movetoworkspace,8"
       "$modifier SHIFT,9,movetoworkspace,9"
       "$modifier SHIFT,0,movetoworkspace,10"
+
       "$modifier CONTROL,right,workspace,e+1"
       "$modifier CONTROL,left,workspace,e-1"
       "$modifier,mouse_down,workspace, e+1"
       "$modifier,mouse_up,workspace, e-1"
       "ALT,Tab,cyclenext"
       "ALT,Tab,bringactivetotop"
-      ",XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-      ",XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-      " ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    ];
+
+    # -----------------------------------------------------
+    # Media & Brightness (Repeatable + Works while locked)
+    # -----------------------------------------------------
+    bindel = [
+      # Volume
+      ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && caelestia shell osd volume"
+      ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && caelestia shell osd volume"
+      ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && caelestia shell osd volume"
+
+      # Brightness
+      ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+      ",XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+    ];
+
+    # -----------------------------------------------------
+    # Media Controls & Switches
+    # -----------------------------------------------------
+    bindl = [
       ",XF86AudioPlay, exec, playerctl play-pause"
       ",XF86AudioPause, exec, playerctl play-pause"
       ",XF86AudioNext, exec, playerctl next"
       ",XF86AudioPrev, exec, playerctl previous"
-      ",XF86MonBrightnessDown,exec,brightnessctl set 5%-"
-      ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
+
+      ",switch:on:Lid Switch, exec, caelestia shell lock"
+
+      # Optional: Turn off the screen immediately on lid close to save battery
+      ",switch:on:Lid Switch, exec, hyprctl dispatch dpms off"
+
+      # Turn screen back on when lid opens
+      ",switch:off:Lid Switch, exec, hyprctl dispatch dpms on"
     ];
 
-    bindl = [
-      ",switch:on:Lid Switch, exec, hyprlock --immediate"
-    ];
-
+    # -----------------------------------------------------
+    # Mouse Bindings
+    # -----------------------------------------------------
     bindm = [
       "$modifier, mouse:272, movewindow"
       "$modifier, mouse:273, resizewindow"

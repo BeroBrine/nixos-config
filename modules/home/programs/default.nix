@@ -1,6 +1,7 @@
 {
   imports = [
     ./shell
+    ./direnv
     ./aerospace
     ./tmux
     ./hyprland

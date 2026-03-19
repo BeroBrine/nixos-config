@@ -15,9 +15,9 @@
     #   # Map Cmd+B to F13 function key for tmux prefix
     #   map cmd+b send_key f13
     # ";
-    font = lib.mkForce {
-      name = "JetBrainsMono Nerd Font Mono";
-      size = 18;
-    };
+    # font = lib.mkForce {
+    #   name = "JetBrainsMono Nerd Font Mono";
+    #   size = 18;
+    # };
   };
 }

@@ -16,44 +16,55 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvf = {
-      url = "github:notashelf/nvf"; inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, stylix, nvf, catppuccin, caelestia-shell, ... }@inputs:
-  let
-    system = "aarch64-linux";
-    hostname = "nixos";
-    username = "abhishek";
-    pkgs = nixpkgs.legacyPackages.${system};
+  outputs =
+    { nixpkgs
+    , home-manager
+    , stylix
+    , nvf
+    , catppuccin
+    , caelestia-shell
+    , ...
+    }@inputs:
+    let
+      system = "aarch64-linux";
+      hostname = "nixos";
+      username = "abhishek";
+      pkgs = nixpkgs.legacyPackages.${system};
 
-  in {
-    nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
+    in
+    {
+      nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit username hostname inputs;
+          };
+          modules = [
+            stylix.nixosModules.stylix
+            ./hosts/${hostname}
+          ];
+        };
+      };
+
+      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {
           inherit username hostname inputs;
         };
         modules = [
-          stylix.nixosModules.stylix
-          ./hosts/${hostname}
+          # nvf.homeManagerModules.default
+          { nixpkgs.config.allowUnsupportedSystem = true; }
+          catppuccin.homeModules.catppuccin
+          caelestia-shell.homeManagerModules.default
+          stylix.homeModules.stylix
+          ./modules/home
+
         ];
       };
     };
-
-    homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      extraSpecialArgs = {
-        inherit username hostname inputs;  
-      };
-      modules = [
-        # nvf.homeManagerModules.default
-        {nixpkgs.config.allowUnsupportedSystem=true;}
-        catppuccin.homeModules.catppuccin
-        caelestia-shell.homeManagerModules.default 
-        stylix.homeModules.stylix
-        ./modules/home
-      ];
-    };
-  };
 }

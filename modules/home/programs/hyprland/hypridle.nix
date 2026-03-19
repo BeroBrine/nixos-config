@@ -7,12 +7,12 @@
         general = {
           after_sleep_cmd = "hyprctl dispatch dpms on";
           ignore_dbus_inhibit = false;
-          lock_cmd = "hyprlock";
+          lock_cmd = "caelestia shell lock";
           };
         listener = [
           {
             timeout = 10 * 60  * 60;
-            on-timeout = "hyprlock";
+            on-timeout = "caelestia shell lock";
           }
           {
             timeout = 15 * 60 * 60;

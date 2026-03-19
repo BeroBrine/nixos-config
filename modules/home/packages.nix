@@ -1,4 +1,5 @@
-{pkgs , ...} : {
+{ pkgs, inputs, ... }:
+{
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnsupportedSystem = true;
@@ -21,6 +22,7 @@
     python3
     fzf
     hyprmon
+
     # rustc
     # rustfmt
   ];

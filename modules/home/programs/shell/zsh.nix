@@ -1,4 +1,5 @@
-{pkgs ,lib  ,...}:{
+{ pkgs, lib, ... }:
+{
   programs = {
     zsh = {
       enable = true;
@@ -11,7 +12,7 @@
           src = pkgs.fetchFromGitHub {
             owner = "sindresorhus";
             repo = "pure";
-            rev  = "v1.23.0";
+            rev = "v1.23.0";
             sha256 = "1jcb5cg1539iy89vm9d59g8lnp3dm0yv88mmlhkp9zwx3bihwr06";
           };
         }
@@ -30,11 +31,12 @@
         [[ ! $(command -v nix) && -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]] && source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
         export PATH="$PATH:~/.local/bin"
         eval "$(ssh-agent -s)"
-      ''; 
-
+        clear
+        echo "Welcome Back! Abhishek 🍃"
+      '';
 
       shellAliases = {
-        hms = "cd ~/.nix && git add * && home-manager switch --flake .";
+        hms = "cd ~/.nixos && git add * && home-manager switch --flake .";
         leet = "nvim leetcode.nvim";
         tat = "tmux attach";
       };

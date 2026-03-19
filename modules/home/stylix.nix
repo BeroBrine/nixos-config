@@ -47,9 +47,9 @@ in {
         name = "Montserrat";
       };
       sizes = {
-        applications = 12;
-        terminal = 15;
-        desktop = 11;
+        applications = 14;
+        terminal = 14;
+        desktop = 12;
         popups = 12;
       };
     };

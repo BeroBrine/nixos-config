@@ -3,9 +3,12 @@
     uinput.enable = true;
     bluetooth.enable = true;
     bluetooth.powerOnBoot = false;
-    # fore asahi
+    i2c.enable = false;
+
     asahi = {
       peripheralFirmwareDirectory = ./firmware;
     };
+
+
   };
 }

@@ -1,16 +1,17 @@
-{pkgs, ...}:{
+{ pkgs, ... }:
+{
   programs = {
     dconf.enable = true;
   };
 
-  environment.systemPackages= with pkgs; [
+  environment.systemPackages = with pkgs; [
     appimage-run # Needed For AppImage Support
     brightnessctl # For Screen Brightness Control
     docker-compose # Allows Controlling Docker From A Single File
     duf # Utility For Viewing Disk Usage In Terminal
     eza # Beautiful ls Replacement
     networkmanagerapplet
-    greetd.tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
+    tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
     mesa-demos
     hyprpicker # Color Picker
     eog # For Image Viewing
@@ -36,9 +37,14 @@
     pipx
     git
     fastfetch
+    ddcutil
     gcc
     clang
     fzf
+    # rust
+    rustup
+    rustc
+    cargo
   ];
 
 }

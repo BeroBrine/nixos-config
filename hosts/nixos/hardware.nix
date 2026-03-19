@@ -8,7 +8,7 @@
 
   boot.initrd.availableKernelModules = [ "usb_storage" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = ["kexec"];
+  boot.kernelModules = ["kexec" "i2c-dev"];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =

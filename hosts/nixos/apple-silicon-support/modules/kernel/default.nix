@@ -63,7 +63,11 @@
       "earlycon"
       "console=tty0"
       "boot.shell_on_fail"
-      "apple_dcp.show_notch=1"
+      "pcie_aspm=force"
+      "amdgpu.runpm=1"
+      "apple_smc_pm=1"
+      # "appledrm.show_notch=1" # enables the notch in macbook 
+
       # Apple's SSDs are slow (~dozens of ms) at processing flush requests which
       # slows down programs that make a lot of fsync calls. This parameter sets
       # a delay in ms before actually flushing so that such requests can be
