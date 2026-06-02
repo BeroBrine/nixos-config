@@ -1,6 +1,7 @@
-{pkgs, lib ,...}:{
+{ pkgs, lib, ... }:
+{
   programs.kitty = {
-    enable = true; 
+    enable = true;
     settings = {
       confirm_os_window_close = 0;
       macos_option_as_alt = true;
@@ -8,7 +9,7 @@
       shell_integration = "no-sudo";
       macos_hide_titlebar = "yes";
       window_border_width = 0;
-      # background_opacity = "0.4";
+      background_opacity = lib.mkForce "0.3";
       background_blur = 35;
     };
     # extraConfig = "

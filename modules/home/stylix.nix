@@ -2,9 +2,11 @@
   pkgs,
   hostname,
   ...
-}: let
+}:
+let
   inherit (import ../../hosts/${hostname}/variables.nix) stylixImage;
-in {
+in
+{
   # Styling Options
   stylix = {
     enable = true;
@@ -17,16 +19,16 @@ in {
       gtk.enable = true;
       hyprlock.enable = false;
       # hyprlock.enable = false;
-      neovim.enable = true;
-      nvf = {
-        enable = false;
-        transparentBackground = true;
-      };
+      # neovim.enable = true;
+      # nvf = {
+      #   enable = false;
+      #   transparentBackground = true;
+      # };
     };
-    opacity = {
-      terminal = 0.65;
-    };
-
+    # opacity = {
+    #   terminal = 0.35;
+    # };
+    #
     polarity = "dark";
     cursor = {
       package = pkgs.bibata-cursors;
@@ -47,8 +49,8 @@ in {
         name = "Montserrat";
       };
       sizes = {
-        applications = 14;
-        terminal = 14;
+        applications = 15;
+        terminal = 15;
         desktop = 12;
         popups = 12;
       };

@@ -21,6 +21,8 @@
     typescript
     python3
     fzf
+    alsa-lib.dev
+    udev.dev
     hyprmon
 
     # rustc

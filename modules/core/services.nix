@@ -1,5 +1,31 @@
+{ pkgs, ... }:
 {
   services = {
+
+    postgresql = {
+      enable = true;
+      package = pkgs.postgresql;
+      ensureDatabases = [
+        "sabi"
+        "abhishek"
+      ];
+      ensureUsers = [
+        {
+          name = "abhishek";
+          ensureDBOwnership = true;
+          ensureClauses = {
+            superuser = true;
+          };
+        }
+      ];
+
+      authentication = pkgs.lib.mkOverride 10 ''
+        local   all             all                                     trust
+        host    all             all             127.0.0.1/32            trust
+        host    all             all             ::1/128                 trust
+      '';
+    };
+
     pipewire = {
       enable = true;
       alsa = {
@@ -20,7 +46,7 @@
     upower.enable = true;
 
     # this one works on asahi
-    power-profiles-daemon.enable = true; 
+    power-profiles-daemon.enable = true;
 
     # auto cpufreq does not work on asahi due to underlying hardware issue
 

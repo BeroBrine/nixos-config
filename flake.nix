@@ -22,13 +22,14 @@
   };
 
   outputs =
-    { nixpkgs
-    , home-manager
-    , stylix
-    , nvf
-    , catppuccin
-    , caelestia-shell
-    , ...
+    {
+      nixpkgs,
+      home-manager,
+      stylix,
+      nvf,
+      catppuccin,
+      caelestia-shell,
+      ...
     }@inputs:
     let
       system = "aarch64-linux";
@@ -50,7 +51,6 @@
           ];
         };
       };
-
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
@@ -58,7 +58,6 @@
         };
         modules = [
           # nvf.homeManagerModules.default
-          { nixpkgs.config.allowUnsupportedSystem = true; }
           catppuccin.homeModules.catppuccin
           caelestia-shell.homeManagerModules.default
           stylix.homeModules.stylix

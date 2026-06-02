@@ -1,4 +1,4 @@
-{ hostname, pkgs, ... }:
+{ hostname, ... }:
 let
   inherit (import ../../../../hosts/${hostname}/variables.nix)
     browser
@@ -19,6 +19,11 @@ in
       "$modifier,SPACE,global,caelestia:launcher"
       "$modifier SHIFT,L,global,caelestia:lock"
       "$modifier SHIFT,V,exec,caelestia clipboard"
+      "$modifier SHIFT,S,exec,caelestia screenshot"
+      "$modifier SHIFT,E,exec,caelestia emoji"
+
+      "$modifier SHIFT,down,exec,brightnessctl --device='kbd_backlight' set 10%-"
+      "$modifier SHIFT,up,exec,brightnessctl --device='kbd_backlight' set 10%+"
 
       # Apps
       "$modifier,Return,exec,uwsm app -- ${terminal}"
