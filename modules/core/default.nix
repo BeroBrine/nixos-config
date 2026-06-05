@@ -1,4 +1,5 @@
-{...}:{
+{ ... }:
+{
   imports = [
     ./programs.nix
     ./boot.nix
@@ -17,6 +18,6 @@
     ./nh.nix
 
     ./programs
-    ./fairydust
+    # ./fairydust
   ];
 }

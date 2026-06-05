@@ -66,7 +66,7 @@
       "pcie_aspm=force"
       "amdgpu.runpm=1"
       "apple_smc_pm=1"
-      # "appledrm.show_notch=1" # enables the notch in macbook 
+      # "appledrm.show_notch=1" # enables/disables the notch in macbook
 
       # Apple's SSDs are slow (~dozens of ms) at processing flush requests which
       # slows down programs that make a lot of fsync calls. This parameter sets

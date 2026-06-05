@@ -1,6 +1,7 @@
-{ pkgs
-, hostname
-, ...
+{
+  pkgs,
+  hostname,
+  ...
 }:
 let
   inherit (import ../../../../hosts/${hostname}/variables.nix)
@@ -11,6 +12,7 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang";
 
     package = pkgs.hyprland;
 
@@ -95,7 +97,7 @@ in
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         enable_swallow = false;
-        vfr = true; # Variable Frame Rate
+        disable_watchdog_warning = true;
         vrr = 2; # Variable Refresh Rate  Might need to set to 0 for NVIDIA/AQ_DRM_DEVICES
         # Screen flashing to black momentarily or going black when app is fullscreen
         # Try setting vrr to 0

@@ -19,7 +19,7 @@
     libnotify # For Notifications
     lm_sensors # Used For Getting Hardware Temps
     ncdu # Disk Usage Analyzer With Ncurses Interface
-    nixfmt-rfc-style # Nix Formatter
+    nixfmt # Nix Formatter
     pavucontrol # For Editing Audio Levels & Devices
     pciutils # Collection Of Tools For Inspecting PCI Devices
     playerctl # Allows Changing Media Volume Through Scripts

@@ -1,16 +1,17 @@
-{
-  pkgs,
-  hostname,
-  ...
-}: let
+{ pkgs
+, hostname
+, ...
+}:
+let
   inherit (import ../../hosts/${hostname}/variables.nix) stylixImage;
-in {
+in
+{
   # Styling Options
   stylix = {
     enable = true;
     # image = stylixImage;
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
 
     polarity = "dark";
     opacity.terminal = 1.0;
@@ -21,17 +22,17 @@ in {
     };
     fonts = {
       monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrains Mono";
+        package = pkgs.monaspace;
+        name = "Monaspace Argon";
       };
-      sansSerif = {
-        package = pkgs.montserrat;
-        name = "Montserrat";
-      };
-      serif = {
-        package = pkgs.montserrat;
-        name = "Montserrat";
-      };
+      # sansSerif = {
+      #   package = pkgs.montserrat;
+      #   name = "Montserrat";
+      # };
+      # serif = {
+      #   package = pkgs.montserrat;
+      #   name = "Montserrat";
+      # };
       sizes = {
         applications = 12;
         terminal = 15;

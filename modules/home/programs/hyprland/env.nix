@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   wayland.windowManager.hyprland = {
     settings = {
       env = [
@@ -14,7 +15,7 @@
         "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
         "SDL_VIDEODRIVER, x11"
         "MOZ_ENABLE_WAYLAND, 1"
-        "NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1" 
+        "NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1"
         # Disabling this by default as it can break configurations
         # WIth more than two GPUs.
         # Also added card2 as a further protection should it be enabled
@@ -30,6 +31,8 @@
         # This should not impact bindings, etc
         "TERMINAL,kitty"
         "XDG_TERMINAL_EMULATOR,kitty"
+
+        "TZDIR,/etc/zoneinfo"
       ];
     };
   };

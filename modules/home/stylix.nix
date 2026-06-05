@@ -1,7 +1,6 @@
-{
-  pkgs,
-  hostname,
-  ...
+{ pkgs
+, hostname
+, ...
 }:
 let
   inherit (import ../../hosts/${hostname}/variables.nix) stylixImage;
@@ -11,7 +10,7 @@ in
   stylix = {
     enable = true;
     # image = stylixImage;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
     targets = {
       hyprland.enable = true;
       kitty.enable = true;
@@ -19,7 +18,7 @@ in
       gtk.enable = true;
       hyprlock.enable = false;
       # hyprlock.enable = false;
-      # neovim.enable = true;
+      neovim.enable = true;
       # nvf = {
       #   enable = false;
       #   transparentBackground = true;
@@ -37,17 +36,17 @@ in
     };
     fonts = {
       monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrains Mono";
+        package = pkgs.monaspace;
+        name = "Monaspace Radon";
       };
-      sansSerif = {
-        package = pkgs.montserrat;
-        name = "Montserrat";
-      };
-      serif = {
-        package = pkgs.montserrat;
-        name = "Montserrat";
-      };
+      # sansSerif = {
+      #   package = pkgs.montserrat;
+      #   name = "Montserrat";
+      # };
+      # serif = {
+      #   package = pkgs.montserrat;
+      #   name = "Montserrat";
+      # };
       sizes = {
         applications = 15;
         terminal = 15;
