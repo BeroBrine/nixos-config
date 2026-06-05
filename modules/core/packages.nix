@@ -37,14 +37,14 @@
     vim
     neovim
     ncurses
-    pipx
+    # pipx
     git
     fastfetch
     ddcutil
     gcc
     clang
     fzf
-    # rust
+    # rust related
     rustup
     rustc
     cargo

@@ -1,9 +1,10 @@
 {
   imports = [
     ./hardware.nix
-    ./apple-silicon-support
     ./nixos.nix
     ./system.nix
-    ./fairydust.nix
+    ./apple-silicon-support
+    ### EXTERNAL DISPLAY SUPPORT EXPERIMENTAL KERNEL ####
+    # ./fairydust.nix
   ];
 }

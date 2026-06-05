@@ -3,7 +3,7 @@
   services = {
 
     postgresql = {
-      enable = true;
+      enable = false;
       package = pkgs.postgresql;
       ensureDatabases = [
         "sabi"
