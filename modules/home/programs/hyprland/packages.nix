@@ -1,4 +1,4 @@
-{pkgs , ...}:{
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     grim
     slurp
@@ -8,5 +8,6 @@
     ydotool
     hyprpolkitagent
     uwsm
+    awww
   ];
 }

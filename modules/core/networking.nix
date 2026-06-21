@@ -24,7 +24,10 @@
       allowedUDPPorts = [
         59010
         59011
+        41641 # Tailscale default port
       ];
     };
+    # Trust tailscale interface
+    firewall.trustedInterfaces = [ "tailscale0" ];
   };
 }

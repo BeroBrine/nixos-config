@@ -1,19 +1,13 @@
 {
   imports = [
-    ./hyprland.nix
-    ./hypridle.nix
+    ./animations-dynamic.nix
     ./binds.nix
-    ./packages.nix
-    # ----hypr related programs---- 
-    # ./hyprpaper.nix
-    # ./hyprlock.nix
-    # ----hypr related programs end---- 
-    ./windowrules.nix
-    # ----animations---- 
-    ./animation-dynamic.nix
-    # ./animation-moving.nix
-    # ./animation-end4.nix
-    # ------------------ 
     ./env.nix
+    ./exec-once.nix
+    ./hypridle.nix
+    ./hyprland.nix
+    ./hyprlock.nix
+    ./windowrules.nix
+    ./packages.nix
   ];
 }

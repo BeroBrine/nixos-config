@@ -1,5 +1,5 @@
 {
   imports = [
-    ./caelestia.nix
+    ./agy.nix
   ];
 }

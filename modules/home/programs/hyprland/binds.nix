@@ -15,12 +15,12 @@ in
     # Standard Keybindings
     # -----------------------------------------------------
     bind = [
-      # Caelestia specific
-      "$modifier,SPACE,global,caelestia:launcher"
-      "$modifier SHIFT,L,global,caelestia:lock"
-      "$modifier SHIFT,V,exec,caelestia clipboard"
-      "$modifier SHIFT,S,exec,caelestia screenshot"
-      "$modifier SHIFT,E,exec,caelestia emoji"
+      # Noctalia specific
+      "$modifier,SPACE,exec,noctalia msg panel-toggle launcher"
+      "$modifier SHIFT,L,exec,noctalia msg session lock"
+      "$modifier SHIFT,V,exec,noctalia msg panel-toggle clipboard"
+      "$modifier SHIFT,S,exec,noctalia msg screenshot-region"
+      "$modifier SHIFT,E,exec,noctalia msg panel-toggle emoji"
 
       "$modifier SHIFT,down,exec,brightnessctl --device='kbd_backlight' set 10%-"
       "$modifier SHIFT,up,exec,brightnessctl --device='kbd_backlight' set 10%+"
@@ -35,6 +35,7 @@ in
       "$modifier,G,exec,uwsm app -- gimp"
       "$modifier,T,exec,pypr toggle term"
       "$modifier,M,exec,pavucontrol"
+      "$modifier,W,exec,switch-wallpaper"
 
       # Window Management
       "$modifier,Q,killactive,"
@@ -102,9 +103,9 @@ in
     # -----------------------------------------------------
     bindel = [
       # Volume
-      ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && caelestia shell osd volume"
-      ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && caelestia shell osd volume"
-      ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && caelestia shell osd volume"
+      ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+      ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+      ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
       # Brightness
       ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
@@ -120,7 +121,7 @@ in
       ",XF86AudioNext, exec, playerctl next"
       ",XF86AudioPrev, exec, playerctl previous"
 
-      ",switch:on:Lid Switch, exec, caelestia shell lock"
+      ",switch:on:Lid Switch, exec, noctalia msg session lock"
 
       # Optional: Turn off the screen immediately on lid close to save battery
       ",switch:on:Lid Switch, exec, hyprctl dispatch dpms off"

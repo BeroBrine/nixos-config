@@ -3,8 +3,9 @@
   lib,
   config,
   ...
-}: 
-with lib; {
+}:
+with lib;
+{
   programs.waybar = {
     enable = true;
     package = pkgs.waybar;
@@ -17,8 +18,8 @@ with lib; {
         passthrough = false;
         gtk-layer-shell = true;
         height = 30;
-        modules-left = ["clock"];
-        modules-center = ["hyprland/workspaces"];
+        modules-left = [ "clock" ];
+        modules-center = [ "hyprland/workspaces" ];
         modules-right = [
           "temperature"
           "custom/power_profile"
@@ -38,16 +39,16 @@ with lib; {
           all-outputs = true;
           on-click = "activate";
           persistent_workspaces = {
-            "1" = [];
-            "2" = [];
-            "3" = [];
-            "4" = [];
-            "5" = [];
-            "6" = [];
-            "7" = [];
-            "8" = [];
-            "9" = [];
-            "10" = [];
+            "1" = [ ];
+            "2" = [ ];
+            "3" = [ ];
+            "4" = [ ];
+            "5" = [ ];
+            "6" = [ ];
+            "7" = [ ];
+            "8" = [ ];
+            "9" = [ ];
+            "10" = [ ];
           };
         };
 
@@ -64,7 +65,11 @@ with lib; {
         backlight = {
           device = "intel_backlight";
           format = "{icon} {percent}%";
-          format-icons = ["󰃞" "󰃟" "󰃠"];
+          format-icons = [
+            "󰃞"
+            "󰃟"
+            "󰃠"
+          ];
           on-scroll-up = "brightnessctl set 1%+";
           on-scroll-down = "brightnessctl set 1%-";
           min-length = 6;
@@ -81,8 +86,17 @@ with lib; {
           format-plugged = " {capacity}%";
           format-alt = "{time} {icon}";
           format-icons = [
-            "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" 
-            "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"
+            "󰂎"
+            "󰁺"
+            "󰁻"
+            "󰁼"
+            "󰁽"
+            "󰁾"
+            "󰁿"
+            "󰂀"
+            "󰂁"
+            "󰂂"
+            "󰁹"
           ];
         };
 
@@ -101,7 +115,11 @@ with lib; {
             phone = "";
             portable = "";
             car = "";
-            default = ["" "" ""];
+            default = [
+              ""
+              ""
+              ""
+            ];
           };
         };
 

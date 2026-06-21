@@ -9,8 +9,8 @@
       shell_integration = "no-sudo";
       # macos_hide_titlebar = "yes";
       window_border_width = 0;
-      background_opacity = lib.mkForce "0.4";
-      background_blur = 40;
+      background_opacity = lib.mkForce "0.65";
+      background_blur = 70;
     };
     # extraConfig = "
     #   # Map Cmd+B to F13 function key for tmux prefix

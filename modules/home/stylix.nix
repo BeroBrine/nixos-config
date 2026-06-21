@@ -1,6 +1,7 @@
-{ pkgs
-, hostname
-, ...
+{
+  pkgs,
+  hostname,
+  ...
 }:
 let
   inherit (import ../../hosts/${hostname}/variables.nix) stylixImage;
@@ -12,13 +13,13 @@ in
     # image = stylixImage;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
     targets = {
-      hyprland.enable = true;
+      hyprland.enable = false;
       kitty.enable = true;
       rofi.enable = false;
       gtk.enable = true;
       hyprlock.enable = false;
       # hyprlock.enable = false;
-      neovim.enable = true;
+      # neovim.enable = true;
       # nvf = {
       #   enable = false;
       #   transparentBackground = true;

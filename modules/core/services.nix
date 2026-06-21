@@ -36,10 +36,21 @@
       pulse.enable = true;
     };
 
-    libinput.enable = true;
+    libinput = {
+      enable = true;
+      touchpad = {
+        disableWhileTyping = true;
+        scrollMethod = "twofinger";
+        naturalScrolling = true;
+        clickMethod = "clickfinger";
+        sendEventsMode = "enabled";
+      };
+    };
+
     fstrim.enable = true;
     gvfs.enable = true;
     openssh.enable = true;
+    tailscale.enable = true;
     blueman.enable = true;
     tumbler.enable = true;
     gnome.gnome-keyring.enable = true;
@@ -49,15 +60,6 @@
     power-profiles-daemon.enable = true;
 
     # auto cpufreq does not work on asahi due to underlying hardware issue
-
-    # auto-cpufreq = {
-    #   enable = true;
-    #   settings = {
-    #     battery = {
-    #       turbo = "never";
-    #     };
-    #   };
-    # };
 
     smartd = {
       enable = true;
@@ -73,5 +75,7 @@
       SUBSYSTEM=="power_supply", KERNEL=="macsmc-battery", ATTR{charge_control_end_threshold}="90", ATTR{charge_control_start_threshold}="80"
     '';
   };
+
+  powerManagement.powertop.enable = true;
 
 }

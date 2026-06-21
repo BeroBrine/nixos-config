@@ -3,5 +3,6 @@
     ./kanata/kanata.nix
     ./gnome
     ./kde-connect
+    ./antigravity
   ];
 }

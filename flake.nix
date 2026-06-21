@@ -3,8 +3,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     catppuccin.url = "github:catppuccin/nix";
-    caelestia-shell = {
-      url = "github:caelestia-dots/shell";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
@@ -19,16 +19,22 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agy-nix = {
+      url = "github:jacopone/antigravity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { nixpkgs
-    , home-manager
-    , stylix
-    , nvf
-    , catppuccin
-    , caelestia-shell
-    , ...
+    {
+      nixpkgs,
+      home-manager,
+      stylix,
+      nvf,
+      catppuccin,
+      noctalia,
+      agy-nix,
+      ...
     }@inputs:
     let
       system = "aarch64-linux";
@@ -42,7 +48,12 @@
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit username hostname inputs;
+            inherit
+              username
+              hostname
+              inputs
+              agy-nix
+              ;
           };
           modules = [
             stylix.nixosModules.stylix
@@ -58,7 +69,7 @@
         modules = [
           # nvf.homeManagerModules.default
           catppuccin.homeModules.catppuccin
-          caelestia-shell.homeManagerModules.default
+          noctalia.homeModules.default
           stylix.homeModules.stylix
           ./modules/home
 

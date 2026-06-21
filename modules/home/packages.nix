@@ -24,7 +24,6 @@
     alsa-lib.dev
     udev.dev
     hyprmon
-
     # rustc
     # rustfmt
   ];

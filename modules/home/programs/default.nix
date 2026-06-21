@@ -8,7 +8,7 @@
     ./waybar
     ./kitty
     ./nodejs
-    ./caelestia-shell
+    ./noctalia
     #./obsidian
     #./nixvim
     # ./nvf
