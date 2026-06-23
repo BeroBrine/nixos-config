@@ -224,7 +224,7 @@ in
       # monitor=eDP-1,2560x1664@60,0x0,1.25
 
       # Catch-all fallback for any external monitors you plug in
-      monitor=,preferred,auto,auto
+      monitor = DP-1, 1920x1080@60, 1920x0, 1
 
       ${
             extraMonitorSettings

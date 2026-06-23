@@ -5,6 +5,6 @@
     ./system.nix
     ./apple-silicon-support
     ### EXTERNAL DISPLAY SUPPORT EXPERIMENTAL KERNEL ####
-    # ./fairydust.nix
+    ./fairydust.nix
   ];
 }
