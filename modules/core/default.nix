@@ -13,7 +13,7 @@
     ./nixpkgs.nix
     ./packages.nix
     ./auto-update.nix
-    ./greetd.nix
+    ./tuigreet.nix
     ./stylix.nix
     ./nh.nix
 

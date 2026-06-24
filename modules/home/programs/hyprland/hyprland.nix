@@ -215,22 +215,16 @@ in
     };
 
     extraConfig = "
-      # MacBook Air M2 (13.6-inch) Native Display
-      # Scale 1.333333 yields a mathematically clean 1920x1248 logical workspace.
-      monitor=eDP-1,2560x1664@60,0x0,1.333333
-      monitor=eDP-1,addreserved,40,0,0,0
+      # 1. TOP MONITOR: External Display anchored at absolute origin (0,0)
+      monitor = DP-1, 1920x1080@100, 0x0, 1
 
-      # (Alternative) Uncomment below instead if you want slightly smaller UI / more screen real estate:
-      # monitor=eDP-1,2560x1664@60,0x0,1.25
-
-      # Catch-all fallback for any external monitors you plug in
-      monitor = DP-1, 1920x1080@60, 1920x0, 1
+      # 2. BOTTOM MONITOR: MacBook Air screen pushed down by the 1080 logical pixels of the display above it
+      monitor = eDP-1, 2560x1664@60, 0x1080, 1.333333
+      monitor = eDP-1, addreserved, 40, 0, 0, 0
 
       ${
             extraMonitorSettings
           }
-      # To enable blur on waybar uncomment the line below
-      # Thanks to SchotjeChrisman
       #layerrule = blur,waybar
     ";
   };

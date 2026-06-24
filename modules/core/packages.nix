@@ -11,7 +11,7 @@
     duf # Utility For Viewing Disk Usage In Terminal
     eza # Beautiful ls Replacement
     networkmanagerapplet
-    tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
+    # tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
     mesa-demos
     hyprpicker # Color Picker
     eog # For Image Viewing

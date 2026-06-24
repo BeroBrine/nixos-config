@@ -1,4 +1,4 @@
-{ hostname, ... }:
+{ hostname, pkgs, ... }:
 let
   inherit (import ../../../../hosts/${hostname}/variables.nix)
     browser
@@ -6,8 +6,33 @@ let
     fileManager
     mainMod
     ;
+
+  # Elite Wayland Dynamic Focus Brightness Hook
+  dynamicBrightness = pkgs.writeShellScriptBin "dynamic-brightness" ''
+    # Interrogate Hyprland for the monitor hosting the active workspace
+    ACTIVE_MONITOR=$(${pkgs.hyprland}/bin/hyprctl -j activeworkspace | ${pkgs.jq}/bin/jq -r '.monitor')
+
+    if [ "$ACTIVE_MONITOR" = "eDP-1" ]; then
+      # Focused on MacBook Screen -> DSI Backlight Controller
+      if [ "$1" = "up" ]; then
+        ${pkgs.brightnessctl}/bin/brightnessctl set 5%+
+      else
+        ${pkgs.brightnessctl}/bin/brightnessctl set 5%-
+      fi
+    else
+      # Focused on External Display -> DDC/CI Hardware I2C Pulse (VCP 10)
+      if [ "$1" = "up" ]; then
+        ${pkgs.ddcutil}/bin/ddcutil setvcp 10 + 5 --noverify
+      else
+        ${pkgs.ddcutil}/bin/ddcutil setvcp 10 - 5 --noverify
+      fi
+    fi
+  '';
 in
 {
+  # Inject the derivation into your active Home Manager session
+  home.packages = [ dynamicBrightness ];
+
   wayland.windowManager.hyprland.settings = {
     "$modifier" = mainMod;
 
@@ -15,7 +40,6 @@ in
     # Standard Keybindings
     # -----------------------------------------------------
     bind = [
-      # Noctalia specific
       "$modifier,SPACE,exec,noctalia msg panel-toggle launcher"
       "$modifier SHIFT,L,exec,noctalia msg session lock"
       "$modifier SHIFT,V,exec,noctalia msg panel-toggle clipboard"
@@ -47,7 +71,7 @@ in
       "$modifier ALT,F,workspaceopt, allfloat"
       "$modifier SHIFT,C,exit,"
 
-      # Focus and Movement (HJKL + Arrows)
+      # Focus and Movement
       "$modifier,h,movefocus,l"
       "$modifier,l,movefocus,r"
       "$modifier,k,movefocus,u"
@@ -99,7 +123,7 @@ in
     ];
 
     # -----------------------------------------------------
-    # Media & Brightness (Repeatable + Works while locked)
+    # Media & Dynamic Brightness Hook (Repeatable while held)
     # -----------------------------------------------------
     bindel = [
       # Volume
@@ -107,32 +131,19 @@ in
       ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
       ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
-      # Brightness
-      ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-      ",XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+      # Hooked Dynamic Brightness
+      ",XF86MonBrightnessDown, exec, dynamic-brightness down"
+      ",XF86MonBrightnessUp, exec, dynamic-brightness up"
     ];
 
-    # -----------------------------------------------------
-    # Media Controls & Switches
-    # -----------------------------------------------------
     bindl = [
       ",XF86AudioPlay, exec, playerctl play-pause"
       ",XF86AudioPause, exec, playerctl play-pause"
       ",XF86AudioNext, exec, playerctl next"
       ",XF86AudioPrev, exec, playerctl previous"
-
       ",switch:on:Lid Switch, exec, noctalia msg session lock"
-
-      # Optional: Turn off the screen immediately on lid close to save battery
-      ",switch:on:Lid Switch, exec, hyprctl dispatch dpms off"
-
-      # Turn screen back on when lid opens
-      ",switch:off:Lid Switch, exec, hyprctl dispatch dpms on"
     ];
 
-    # -----------------------------------------------------
-    # Mouse Bindings
-    # -----------------------------------------------------
     bindm = [
       "$modifier, mouse:272, movewindow"
       "$modifier, mouse:273, resizewindow"
